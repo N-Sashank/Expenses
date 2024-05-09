@@ -1,8 +1,8 @@
 const formEl = document.querySelector(".form");
 const transactionEl = document.querySelector(".transaction-items");
-const totalIncomeEl = +document.getElementById("total-income").textContent;
-const totalExpensesEl = +document.getElementById("total-expenses").textContent;
-const balanceEl = document.getElementById("balance-element");
+// const totalIncomeEl = +document.getElementById("total-income").textContent;
+// const totalExpensesEl = +document.getElementById("total-expenses").textContent;
+// const balanceEl = document.getElementById("balance-element");
 
 transactionEl.addEventListener("click", clickHandler);
 
@@ -13,22 +13,29 @@ function clickHandler(event) {
   const clickedEl = event.target.parentNode;
   clickedEl.remove();
   //update income or expenses
-  const Ramount = +clickedEl.querySelector(".transaction-amount").textContent;
+  const amountEl = clickedEl.querySelector('.transaction-amount');
+  const Ramount = +amountEl.textContent;
 
   if (Ramount < 0) {
+    const totalExpensesEl = +document.getElementById("total-expenses").textContent;
+
     const updatedExpensesEl = totalExpensesEl - Ramount * -1;
     document.getElementById("total-expenses").innerText = updatedExpensesEl;
   } else {
+    const totalIncomeEl = +document.getElementById("total-income").textContent;
+
     const updatedIncomeEl = totalIncomeEl - Ramount;
     document.getElementById("total-income").innerText = updatedIncomeEl;
   }
   //update balance
+  const balanceEl = document.getElementById("balance-element");
   const income = +document.getElementById("total-income").innerText;
   const expense = +document.getElementById("total-expenses").innerText;
   const resultEl = income - expense;
   document.getElementById("balance-element").textContent = resultEl;
   console.log(resultEl);
   //check for negative balance
+
   if (balanceEl.innerText < 0) {
     balanceEl.classList.add("red");
   }
@@ -54,13 +61,18 @@ function formHandler(e) {
 
   const Ramount = amountEl;
   if (Ramount < 0) {
+    const totalExpensesEl = +document.getElementById("total-expenses").textContent;
+
     const updatedExpensesEl = totalExpensesEl + Ramount * -1;
     document.getElementById("total-expenses").innerText = updatedExpensesEl;
   } else {
+    const totalIncomeEl = +document.getElementById("total-income").textContent;
+
     const updatedIncomeEl = totalIncomeEl + Ramount;
     document.getElementById("total-income").innerText = updatedIncomeEl;
   }
   //update balance
+  const balanceEl = document.getElementById("balance-element");
   const income = +document.getElementById("total-income").innerText;
   const expense = +document.getElementById("total-expenses").innerText;
   const resultEl = income - expense;
@@ -69,7 +81,7 @@ function formHandler(e) {
   formEl.querySelectorAll(".input")[0].value = "";
   formEl.querySelectorAll(".input")[1].value = "";
 
- 
+
   //check for negative balance
   if (balanceEl.innerText < 0) {
     balanceEl.classList.add("red");
