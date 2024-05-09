@@ -13,7 +13,7 @@ function clickHandler(event) {
   const clickedEl = event.target.parentNode;
   clickedEl.remove();
   //update income or expenses
-  const Ramount = +clickedEl.querySelector(".transaction-amount").innerText;
+  const Ramount = +clickedEl.querySelector(".transaction-amount").textContent;
 
   if (Ramount < 0) {
     const updatedExpensesEl = totalExpensesEl - Ramount * -1;
@@ -66,12 +66,10 @@ function formHandler(e) {
   const resultEl = income - expense;
   document.getElementById("balance-element").textContent = resultEl;
   // clear form inputs
-  formEl.querySelectorAll(".input")[0].value = " ";
-  formEl.querySelectorAll(".input")[1].value = " ";
+  formEl.querySelectorAll(".input")[0].value = "";
+  formEl.querySelectorAll(".input")[1].value = "";
 
-  // unfocus (blur) form inputs
-  descriptionEl.blur();
-  amountEl.blur();
+ 
   //check for negative balance
   if (balanceEl.innerText < 0) {
     balanceEl.classList.add("red");
