@@ -14,6 +14,7 @@ function clickHandler(event) {
   clickedEl.remove();
   //update income or expenses
   const amountEl = clickedEl.querySelector('.transaction-amount');
+ 
   const Ramount = +amountEl.textContent;
 
   if (Ramount < 0) {
@@ -33,11 +34,13 @@ function clickHandler(event) {
   const expense = +document.getElementById("total-expenses").innerText;
   const resultEl = income - expense;
   document.getElementById("balance-element").textContent = resultEl;
-  console.log(resultEl);
   //check for negative balance
 
   if (balanceEl.innerText < 0) {
     balanceEl.classList.add("red");
+  }
+  else{
+    balanceEl.classList.remove("red");
   }
 }
 
@@ -85,5 +88,7 @@ function formHandler(e) {
   //check for negative balance
   if (balanceEl.innerText < 0) {
     balanceEl.classList.add("red");
+  }  else{
+    balanceEl.classList.remove("red");
   }
 }
