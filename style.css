@@ -74,6 +74,7 @@ label {
 
 .form > div {
   margin: 25px;
+  margin-bottom: 8px;
 }
 
 input {
@@ -86,6 +87,7 @@ input {
 .add-button {
   font-family: "Comic Neue", cursive;
   cursor: pointer;
+  height: 40px;
   width: 300px;
   border-radius: 15px;
   border: none;

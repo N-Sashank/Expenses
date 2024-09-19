@@ -27,12 +27,12 @@
       <form class="form">
         <div>
           <label for="#">Description </label>
-          <input type="text" value=" " class="input input--description"/>
+          <input type="text" value=" " class="input input--description" required/>
         </div>
         <div>
           <label for="#">Amount(+ for income - for expenses)</label>
-          <input type="number" class="input input--amount" />
-        </div>
+          <input type="number" class="input input--amount"  required/>
+        </div> 
         <button class="add-button">ADD</button>
       </form>
     </div>
@@ -45,7 +45,9 @@
           <div class="list-item positive">
             <h4>Salary</h4>
             <button class="removetransaction__btn">
-              <img src="/exit.svg" alt="" srcset="" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" color="white" fill="white">
+                <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             </button>
             <div class="transaction-amount">+5000</div>
           </div>
